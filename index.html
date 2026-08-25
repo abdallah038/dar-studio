@@ -3,187 +3,360 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>دار | Dar Studio — منتجات رقمية بتسليم سريع</title>
-<meta name="description" content="Dar Studio — premium landing pages, Telegram bots & Python automation. Fixed prices, fast delivery, revisions included.">
+<title>Dar Studio — دار | Landing Pages · Bots · Automation</title>
+<meta name="description" content="Dar Studio builds premium landing pages, Telegram bots and Python automation. Fixed price, 24h delivery, free revisions.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#08090d;--card:#10131a;--line:#1e2430;--txt:#e9edf3;--mut:#8b96a5;--gold:#d4af37;--em:#10b981}
+/* ---------- Design tokens (ui-ux-pro-max: semantic, 9-shade neutral) ---------- */
+:root{
+  --bg:#050506;            /* OLED-safe */
+  --bg-elev:#0b0c0f;
+  --surface:#101216;
+  --card:#0e0f13;
+  --line:rgba(255,255,255,.07);
+  --line-strong:rgba(255,255,255,.12);
+  --txt:#f4f4f5;
+  --txt-2:#c8ccd2;
+  --mut:#98a0aa;
+  --faint:#62676f;
+  --accent:#e6c15c;        /* single luxe accent — CTAs only */
+  --accent-deep:#b8933c;
+  --ok:#34d399;
+  --font-ar:'IBM Plex Sans Arabic',system-ui,sans-serif;
+  --font-en:'Sora',var(--font-ar);
+  --r-lg:20px;--r-md:14px;--r-sm:10px;
+}
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:var(--bg);color:var(--txt);font-family:'IBM Plex Sans Arabic','Segoe UI',Tahoma,sans-serif;line-height:1.75}
-a{color:inherit;text-decoration:none}
-.wrap{max-width:1020px;margin:auto;padding:0 20px}
-nav{display:flex;justify-content:space-between;align-items:center;padding:22px 0;border-bottom:1px solid var(--line)}
-.logo{font-size:1.25rem;font-weight:800}
-.logo b{color:var(--gold)}
-.logo small{display:block;font-size:.62rem;color:var(--mut);letter-spacing:2px;font-weight:400}
-.nav-cta{background:var(--gold);color:#141001;padding:9px 20px;border-radius:10px;font-weight:700;font-size:.88rem}
-header.hero{text-align:center;padding:84px 0 60px;background:radial-gradient(800px 320px at 50% -80px,#d4af3718,transparent)}
-.kicker{color:var(--gold);letter-spacing:3px;font-size:.78rem;border:1px solid #d4af3740;background:#d4af370d;padding:5px 18px;border-radius:99px;display:inline-block;margin-bottom:22px}
-h1{font-size:clamp(1.9rem,5.5vw,3.2rem);font-weight:800;line-height:1.25}
-h1 span{color:var(--gold)}
-.sub{color:var(--mut);max-width:640px;margin:16px auto 0;font-size:1.05rem}
-.trust{display:flex;gap:30px;justify-content:center;flex-wrap:wrap;margin-top:34px;color:var(--mut);font-size:.85rem}
-.trust b{color:var(--em)}
-h2{font-size:1.45rem;margin-bottom:6px}
-.sec-sub{color:var(--mut);font-size:.95rem;margin-bottom:26px}
-section{padding:56px 0}
-.demos-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:16px}
-.demo{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;transition:.25s;position:relative}
-.demo:hover{transform:translateY(-5px);border-color:#d4af3777;box-shadow:0 14px 40px #0009}
-.thumb{height:150px;display:flex;align-items:center;justify-content:center;font-size:2.6rem;background:
- linear-gradient(145deg,#161b26,#0d1118);border-bottom:1px solid var(--line)}
-.demo .meta{padding:18px 20px 20px}
-.demo h3{font-size:1.02rem;margin-bottom:4px}
-.demo p{color:var(--mut);font-size:.82rem;margin-bottom:12px}
-.tags{display:flex;gap:6px;flex-wrap:wrap}
-.tag{font-size:.68rem;color:var(--mut);border:1px solid var(--line);border-radius:99px;padding:2px 10px}
-.tag.lang-ar{color:#c9a96a;border-color:#c9a96a44}
-.pricing{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
-.plan{background:linear-gradient(160deg,var(--card),#0d1017);border:1px solid var(--line);border-radius:20px;padding:30px 26px;position:relative;transition:.25s}
-.plan:hover{border-color:var(--gold);transform:translateY(-4px)}
-.plan.hot{border-color:#d4af3766;background:linear-gradient(160deg,#171509,var(--card))}
-.hot-badge{position:absolute;top:-11px;inset-inline-start:24px;background:var(--gold);color:#141001;font-size:.68rem;font-weight:800;padding:3px 13px;border-radius:99px}
-.plan h3{font-size:1.05rem;margin-bottom:4px}
-.price{font-size:2.1rem;font-weight:800;color:var(--gold);margin:10px 0 2px}
-.price small{font-size:.75rem;color:var(--mut);font-weight:400}
-.plan ul{list-style:none;margin:16px 0 22px;color:#b9c2cd;font-size:.87rem}
-.plan li{padding:5px 0;display:flex;gap:8px;align-items:center}
-.plan li::before{content:"✓";color:var(--em);font-weight:800}
-.buy{display:block;text-align:center;background:var(--gold);color:#141001;padding:12px;border-radius:12px;font-weight:800;transition:.2s}
-.buy:hover{filter:brightness(1.12)}
-.how{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;counter-reset:s}
-.step{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px}
-.step::before{counter-increment:s;content:counter(s);display:inline-flex;width:30px;height:30px;background:#d4af3718;color:var(--gold);border:1px solid #d4af3740;border-radius:10px;align-items:center;justify-content:center;font-weight:800;margin-bottom:10px}
-.step b{display:block;margin-bottom:4px}
-.step p{color:var(--mut);font-size:.86rem}
-.revisions{display:flex;gap:14px;flex-wrap:wrap;margin-top:18px}
-.rev{flex:1;min-width:230px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px}
-.rev h4{color:var(--em);margin-bottom:6px;font-size:.95rem}
-.rev p{color:var(--mut);font-size:.85rem}
-.contact-box{background:linear-gradient(150deg,#12100a,var(--card));border:1px solid #d4af3740;border-radius:22px;padding:38px;text-align:center}
-.contact-box h2{margin-bottom:8px}
-.wa{display:inline-block;margin-top:20px;background:#25d366;color:#04240f;padding:14px 34px;border-radius:13px;font-weight:800;font-size:1rem}
-.alt{color:var(--mut);font-size:.85rem;margin-top:14px}
-footer{border-top:1px solid var(--line);margin-top:40px;padding:34px 0;text-align:center;color:var(--mut);font-size:.83rem}
-footer .links{display:flex;gap:20px;justify-content:center;margin-bottom:12px;flex-wrap:wrap}
-@media(max-width:600px){.trust{gap:16px}}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--txt);font-family:var(--font-ar);line-height:1.75;-webkit-font-smoothing:antialiased}
+::selection{background:#e6c15c33}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+img,svg{display:block}
+.wrap{max-width:1080px;margin:auto;padding:0 24px}
+.en{font-family:var(--font-en)}
+
+/* ---------- Nav ---------- */
+nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:#050506cc;border-bottom:1px solid var(--line)}
+.nav-in{display:flex;justify-content:space-between;align-items:center;height:68px}
+.logo{display:flex;align-items:center;gap:11px;font-weight:700}
+.logo-mark{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,#e6c15c,#8a6d24);display:grid;place-items:center;color:#151004;font-family:var(--font-en);font-weight:800;font-size:.95rem}
+.logo b{font-size:1.02rem}
+.logo small{display:block;color:var(--faint);font-size:.6rem;letter-spacing:.28em;font-family:var(--font-en)}
+.nav-links{display:flex;gap:26px;color:var(--txt-2);font-size:.88rem}
+.nav-links a:hover{color:var(--accent)}
+.nav-cta{color:#151004;background:var(--accent);padding:10px 22px;border-radius:11px;font-weight:700;font-size:.88rem;transition:.2s;min-height:42px;display:inline-flex;align-items:center}
+.nav-cta:hover{filter:brightness(1.08)}
+@media(max-width:720px){.nav-links{display:none}}
+
+/* ---------- Buttons ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:52px;padding:13px 32px;border-radius:14px;font-weight:700;font-size:.98rem;text-decoration:none;transition:transform .18s,box-shadow .18s,filter .18s}
+.btn-gold{background:linear-gradient(180deg,#f0cd70,var(--accent) 55%,var(--accent-deep));color:#171104;box-shadow:0 10px 34px -8px #e6c15c66,inset 0 1px 0 #fff5}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 16px 44px -8px #e6c15c88}
+.btn-ghost{border:1px solid var(--line-strong);color:var(--txt)}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;text-align:center;padding:110px 0 90px;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:-40% -20% auto;height:130%;
+ background:radial-gradient(640px 340px at 50% 0%,#e6c15c14,transparent 65%),
+            radial-gradient(900px 420px at 82% -10%,#e6c15c09,transparent 60%);
+ pointer-events:none}
+.kicker{position:relative;display:inline-flex;align-items:center;gap:9px;color:var(--accent);font-size:.74rem;letter-spacing:.22em;font-family:var(--font-en);border:1px solid #e6c15c38;background:#e6c15c0a;padding:7px 18px;border-radius:99px;margin-bottom:26px}
+.kicker i{width:6px;height:6px;border-radius:50%;background:var(--accent);box-shadow:0 0 12px var(--accent)}
+h1{position:relative;font-size:clamp(2rem,5.4vw,3.55rem);font-weight:800;line-height:1.22;letter-spacing:-.02em}
+h1 .grad{background:linear-gradient(100deg,#f4dfa0,var(--accent) 45%,#a87f2e);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .sub{position:relative;color:var(--mut);max-width:620px;margin:20px auto 36px;font-size:1.06rem;font-weight:300}
+.hero-ctas{position:relative;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+/* trust strip */
+.trust-strip{position:relative;margin-top:64px;border-block:1px solid var(--line);padding:22px 0;display:flex;justify-content:center;gap:clamp(24px,5vw,64px);flex-wrap:wrap;color:var(--txt-2);font-size:.86rem}
+.trust-strip span{display:flex;align-items:center;gap:9px}
+.trust-strip svg{width:17px;height:17px;stroke:var(--accent)}
+
+/* ---------- Sections ---------- */
+section{padding:92px 0}
+.sec-head{text-align:center;max-width:620px;margin:0 auto 54px}
+.sec-head h2{font-size:clamp(1.5rem,3.4vw,2.15rem);font-weight:800;letter-spacing:-.015em;line-height:1.3}
+.sec-head p{color:var(--mut);margin-top:12px;font-weight:300}
+.sec-num{display:block;font-family:var(--font-en);color:var(--accent);letter-spacing:.3em;font-size:.68rem;margin-bottom:14px}
+
+/* ---------- Demo cards : real browser-chrome previews ---------- */
+.demos{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:22px}
+.demo{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;text-decoration:none;color:inherit;transition:transform .25s,border-color .25s,box-shadow .25s}
+.demo:hover{transform:translateY(-6px);border-color:#e6c15c59;box-shadow:0 22px 60px -18px #000c}
+.chrome{display:flex;gap:6px;align-items:center;padding:10px 14px;background:#14151b;border-bottom:1px solid var(--line)}
+.dot{width:9px;height:9px;border-radius:50%;background:#2c2f37}
+.urlbar{flex:1;margin-inline-start:6px;background:#0a0b0e;border:1px solid var(--line);border-radius:7px;color:var(--faint);font-family:var(--font-en);font-size:.62rem;padding:4px 11px;direction:ltr;text-align:left;white-space:nowrap;overflow:hidden}
+.preview{height:172px;position:relative;overflow:hidden;background:var(--pv-bg,#0d0f14)}
+.preview::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,#0e0f1399)}
+.pv-nav{display:flex;justify-content:space-between;align-items:center;padding:13px 20px;font-size:.56rem;color:var(--pv-accent);opacity:.85}
+.pv-logo{width:46px;height:8px;border-radius:4px;background:currentColor;opacity:.9}
+.pv-dots{display:flex;gap:5px}.pv-dots i{width:16px;height:5px;border-radius:3px;background:currentColor;opacity:.35}
+.pv-hero{text-align:center;padding:20px 26px 0}
+.pv-badge{display:inline-block;width:74px;height:9px;border-radius:5px;background:currentColor;opacity:.5}
+.pv-h{margin-top:12px;font-weight:800;color:#eceef1;font-size:1.06rem;letter-spacing:-.01em;line-height:1.3}
+.pv-line{width:min(240px,72%);height:7px;border-radius:4px;background:#ffffff14;margin:11px auto 0}
+.pv-btn{display:inline-block;margin-top:15px;width:96px;height:26px;border-radius:8px;background:linear-gradient(180deg,var(--pv-accent),color-mix(in srgb,var(--pv-accent) 70%,black));box-shadow:0 6px 18px -4px var(--pv-accent)}
+.demo .meta{padding:19px 22px 21px;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.demo h3{font-size:.99rem;font-weight:600}
+.demo h3 small{display:block;color:var(--mut);font-weight:400;font-size:.78rem;margin-top:3px}
+.pv-open{flex-shrink:0;display:inline-flex;align-items:center;gap:6px;color:var(--accent);font-size:.8rem;font-weight:600}
+.pv-open svg{width:14px;height:14px;stroke:currentColor}
+.demo:hover .pv-open{text-decoration:underline}
+
+/* ---------- Pricing ---------- */
+.plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:22px;align-items:stretch}
+.plan{position:relative;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:34px 30px;display:flex;flex-direction:column;transition:.25s}
+.plan:hover{border-color:var(--line-strong);transform:translateY(-4px)}
+.plan.hot{border-color:#e6c15c4d;background:linear-gradient(170deg,#131109,var(--card))}
+.hot-tag{position:absolute;top:-12px;inset-inline-start:28px;background:var(--accent);color:#171104;font-size:.66rem;font-weight:800;padding:4px 14px;border-radius:99px;letter-spacing:.04em}
+.plan h3{font-size:1rem;font-weight:600;color:var(--txt-2)}
+.price{font-family:var(--font-en);font-size:2.5rem;font-weight:800;letter-spacing:-.03em;margin:14px 0 2px}
+.price small{font-size:.8rem;color:var(--mut);font-weight:400;letter-spacing:0}
+.plan ul{list-style:none;margin:22px 0 28px;flex:1}
+.plan li{display:flex;gap:11px;padding:7px 0;color:var(--txt-2);font-size:.88rem;align-items:flex-start}
+.plan li svg{width:16px;height:16px;stroke:var(--ok);flex-shrink:0;margin-top:5px}
+.plan .btn{width:100%}
+
+/* ---------- Process ---------- */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:18px}
+.step{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:28px 24px;position:relative}
+.step-n{font-family:var(--font-en);font-size:.72rem;color:var(--accent);letter-spacing:.2em;margin-bottom:14px;display:block}
+.step h3{font-size:1rem;margin-bottom:7px}
+.step p{color:var(--mut);font-size:.86rem;font-weight:300}
+.step::after{content:"";position:absolute;top:38px;inset-inline-end:-19px;width:18px;height:1px;background:var(--line-strong)}
+.step:last-child::after{display:none}
+
+/* ---------- Guarantee ---------- */
+.guar{display:grid;grid-template-columns:repeat(auto-fit,minmax(225px,1fr));gap:18px}
+.g-card{border:1px solid var(--line);border-radius:18px;padding:26px;background:linear-gradient(160deg,#0d0e12,var(--bg-elev))}
+.g-card svg{width:26px;height:26px;stroke:var(--accent);margin-bottom:16px}
+.g-card h3{font-size:.95rem;margin-bottom:6px}
+.g-card p{color:var(--mut);font-size:.84rem;font-weight:300}
+
+/* ---------- FAQ ---------- */
+.faq{max-width:720px;margin:auto}
+details{border-bottom:1px solid var(--line);padding:4px 2px}
+summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:14px;padding:20px 4px;font-weight:600;font-size:.97rem;min-height:44px}
+summary::-webkit-details-marker{display:none}
+summary .pm{flex-shrink:0;width:26px;height:26px;border:1px solid var(--line-strong);border-radius:8px;display:grid;place-items:center;color:var(--mut);transition:.2s;font-size:1rem;line-height:1}
+details[open] .pm{transform:rotate(45deg);color:var(--accent);border-color:#e6c15c55}
+details p{color:var(--mut);font-size:.9rem;font-weight:300;padding:0 4px 22px;max-width:620px}
+
+/* ---------- Final CTA ---------- */
+.final{position:relative;border:1px solid #e6c15c33;border-radius:26px;padding:64px 34px;text-align:center;overflow:hidden;background:radial-gradient(520px 260px at 50% -30%,#e6c15c12,transparent),var(--card)}
+.final h2{font-size:clamp(1.5rem,3.6vw,2.2rem);font-weight:800;letter-spacing:-.015em}
+.final p{color:var(--mut);margin:14px auto 30px;max-width:480px;font-weight:300}
+.final .row{display:flex;gap:13px;justify-content:center;flex-wrap:wrap}
+
+/* ---------- Footer ---------- */
+footer{border-top:1px solid var(--line);margin-top:96px;padding:44px 0;color:var(--faint);font-size:.82rem}
+.foot-in{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;align-items:center}
+footer a{color:var(--mut)}.footer a:hover{color:var(--accent)}
+
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
 </head>
 <body>
 
-<nav><div class="wrap" style="display:flex;justify-content:space-between;align-items:center;width:100%">
-<div class="logo">Dar <b>دار</b><small>DIGITAL STUDIO</small></div>
-<a class="nav-cta" href="#order">اطلب الآن</a>
+<nav><div class="wrap nav-in">
+<a class="logo" href="#">
+<span class="logo-mark en">D</span>
+<span><b>دار ستوديو</b><small>DAR STUDIO</small></span>
+</a>
+<div class="nav-links en" style="font-family:var(--font-ar)">
+<a href="#work">أعمالنا</a><a href="#pricing">الأسعار</a><a href="#process">آلية العمل</a><a href="#faq">أسئلة</a>
+</div>
+<a class="nav-cta" href="#contact">اطلب مشروعك</a>
 </div></nav>
 
 <header class="hero"><div class="wrap">
-<span class="kicker">DAR STUDIO · دار ستوديو</span>
-<h1>منتجات رقمية <span>جاهزة خلال ٢٤ ساعة</span><br>بجودة استوديو وسعر ثابت</h1>
-<p class="sub">صفحات هبوط فاخرة، بوتات تليجرام، وأتمتة Python — تشوف النموذج قبل ما تدفع، وتستلم شغلك بسرعة، مع تعديلات مجانية لحد ما تبقى مبهورة.</p>
-<div class="trust">
-<span>⚡ تسليم <b>24-48 ساعة</b></span>
-<span>🔁 <b>تعديلان مجانًا</b></span>
-<span>💳 دفع <b>USDC / كريبتو</b></span>
-<span>🛡️ <b>تشوف النموذج الأول</b></span>
+<span class="kicker"><i></i>SANAYA→DAR · DIGITAL STUDIO</span>
+<h1>منتج رقمي بجودة استوديو عالمية<br><span class="grad">بيوصلك خلال ٢٤ ساعة</span></h1>
+<p class="sub">صفحات هبوط وبوتات وأتمتة — بسعر ثابت وواضح، تشوف معاينة خاصة قبل الدفع، وتعديلين مجانًا بعد التسليم.</p>
+<div class="hero-ctas">
+<a class="btn btn-gold" href="#pricing">شوف الباقات والأسعار
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 12H5m7-7-7 7 7 7"/></svg></a>
+<a class="btn btn-ghost" href="#work">استعرض النماذج الحية</a>
+</div>
+<div class="trust-strip">
+<span><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>تسليم ٢٤–٤٨ ساعة</span>
+<span><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>تعديلان مجانًا</span>
+<span><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/></svg>معاينة قبل الدفع</span>
+<span><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M7 9h10M7 13h6"/></svg>كود نظيف مسلَّم لك</span>
 </div>
 </div></header>
 
-<section id="demos"><div class="wrap">
-<h2>نماذج جاهزة — شوف قبل ما تدفع</h2>
-<p class="sec-sub">دي قوالب حقيقية اشتغلت عليها — اختار أقرب واحدة لمشروعك وإحنا نخصصها لهوية علامتك بالكامل.</p>
-<div class="demos-grid">
+<section id="work"><div class="wrap">
+<div class="sec-head">
+<span class="sec-num">01 — WORK</span>
+<h2>نماذج حية — جرّبها بنفسك قبل ما تدفع</h2>
+<p>كل نموذج موقع كامل شغال. اختار الأقرب لمجالك، وإحنا نعيد بناءه بهوية علامتك وألوانك ومحتواك.</p>
+</div>
+<div class="demos">
 
-<a class="demo" href="/demos/lumen-cafe.html" target="_blank">
-<div class="thumb">☕</div>
-<div class="meta"><h3>Lumen Coffee — Specialty Café</h3><p>مقهى مختص — ذهبي دافئ، إنجليزي</p>
-<div class="tags"><span class="tag">Landing Page</span><span class="tag">EN</span></div></div></a>
+<a class="demo" href="demos/lumen-cafe.html" target="_blank" rel="noopener">
+<div class="chrome"><i class="dot"></i><i class="dot"></i><i class="dot"></i><span class="urlbar">dar.studio/lumen-cafe</span></div>
+<div class="preview" style="--pv-bg:radial-gradient(420px 200px at 50% -30%,#d4af3720,transparent),#0b0c10;--pv-accent:#d4af37">
+<div class="pv-nav"><span class="pv-logo"></span><span class="pv-dots"><i></i><i></i><i></i></span></div>
+<div class="pv-hero"><span class="pv-badge"></span><div class="pv-h">Lumen Coffee</div><div class="pv-line"></div><span class="pv-btn"></span></div>
+</div>
+<div class="meta"><h3>Lumen Coffee<small>مقهى مختص · إنجليزي · ذهبي دافئ</small></h3><span class="pv-open">معاينة <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></span></div>
+</a>
 
-<a class="demo" href="/demos/iron-temple.html" target="_blank">
-<div class="thumb">🏋️</div>
-<div class="meta"><h3>Iron Temple — Gym</h3><p>جيم قوة — أحمر جسور، إنجليزي</p>
-<div class="tags"><span class="tag">Landing Page</span><span class="tag">EN</span></div></div></a>
+<a class="demo" href="demos/iron-temple.html" target="_blank" rel="noopener">
+<div class="chrome"><i class="dot"></i><i class="dot"></i><i class="dot"></i><span class="urlbar">dar.studio/iron-temple</span></div>
+<div class="preview" style="--pv-bg:radial-gradient(420px 200px at 50% -30%,#f8717120,transparent),#0d0b0c;--pv-accent:#f87171">
+<div class="pv-nav"><span class="pv-logo"></span><span class="pv-dots"><i></i><i></i><i></i></span></div>
+<div class="pv-hero"><span class="pv-badge"></span><div class="pv-h">IRON TEMPLE</div><div class="pv-line"></div><span class="pv-btn"></span></div>
+</div>
+<div class="meta"><h3>Iron Temple<small>جيم قوة · إنجليزي · قرمزي</small></h3><span class="pv-open">معاينة <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></span></div>
+</a>
 
-<a class="demo" href="/demos/nile-digital.html" target="_blank">
-<div class="thumb">💻</div>
-<div class="meta"><h3>Nile Digital — Agency</h3><p>استوديو برمجة — أزرق احترافي</p>
-<div class="tags"><span class="tag">Landing Page</span><span class="tag">EN</span></div></div></a>
+<a class="demo" href="demos/nile-digital.html" target="_blank" rel="noopener">
+<div class="chrome"><i class="dot"></i><i class="dot"></i><i class="dot"></i><span class="urlbar">dar.studio/nile-digital</span></div>
+<div class="preview" style="--pv-bg:radial-gradient(420px 200px at 50% -30%,#60a5fa20,transparent),#0a0d13;--pv-accent:#60a5fa">
+<div class="pv-nav"><span class="pv-logo"></span><span class="pv-dots"><i></i><i></i><i></i></span></div>
+<div class="pv-hero"><span class="pv-badge"></span><div class="pv-h">Nile Digital</div><div class="pv-line"></div><span class="pv-btn"></span></div>
+</div>
+<div class="meta"><h3>Nile Digital<small>استوديو برمجة · إنجليزي · أزرق</small></h3><span class="pv-open">معاينة <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></span></div>
+</a>
 
-<a class="demo" href="/demos/elite-clinic-ar.html" target="_blank">
-<div class="thumb">🦷</div>
-<div class="meta"><h3>عيادة النخبة — أسنان</h3><p>عيادة تجميل — زمردي، عربي RTL</p>
-<div class="tags"><span class="tag">Landing Page</span><span class="tag lang-ar">عربي RTL</span></div></div></a>
+<a class="demo" href="demos/elite-clinic-ar.html" target="_blank" rel="noopener">
+<div class="chrome"><i class="dot"></i><i class="dot"></i><i class="dot"></i><span class="urlbar">dar.studio/elite-clinic</span></div>
+<div class="preview" style="--pv-bg:radial-gradient(420px 200px at 50% -30%,#10b98120,transparent),#090e0c;--pv-accent:#10b981">
+<div class="pv-nav"><span class="pv-logo"></span><span class="pv-dots"><i></i><i></i><i></i></span></div>
+<div class="pv-hero"><span class="pv-badge"></span><div class="pv-h">عيادة النخبة</div><div class="pv-line"></div><span class="pv-btn"></span></div>
+</div>
+<div class="meta"><h3>عيادة النخبة<small>أسنان تجميل · عربي RTL · زمردي</small></h3><span class="pv-open">معاينة <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></span></div>
+</a>
 
-<a class="demo" href="/demos/attar-gulf-ar.html" target="_blank">
-<div class="thumb">🕌</div>
-<div class="meta"><h3>عطر الخليج — عطورة</h3><p>عطور فاخرة — عنبري، عربي RTL</p>
-<div class="tags"><span class="tag">Landing Page</span><span class="tag lang-ar">عربي RTL</span></div></div></a>
+<a class="demo" href="demos/attar-gulf-ar.html" target="_blank" rel="noopener">
+<div class="chrome"><i class="dot"></i><i class="dot"></i><i class="dot"></i><span class="urlbar">dar.studio/attar-gulf</span></div>
+<div class="preview" style="--pv-bg:radial-gradient(420px 200px at 50% -30%,#eab30820,transparent),#0f0d08;--pv-accent:#eab308">
+<div class="pv-nav"><span class="pv-logo"></span><span class="pv-dots"><i></i><i></i><i></i></span></div>
+<div class="pv-hero"><span class="pv-badge"></span><div class="pv-h">عطر الخليج</div><div class="pv-line"></div><span class="pv-btn"></span></div>
+</div>
+<div class="meta"><h3>عطر الخليج<small>عطور فاخرة · عربي RTL · عنبري</small></h3><span class="pv-open">معاينة <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></span></div>
+</a>
 
-<a class="demo" href="/demos/falcon-logistics.html" target="_blank">
-<div class="thumb">🚚</div>
-<div class="meta"><h3>Falcon Freight — Logistics</h3><p>شحن خليجي — سماوي حديث، EN</p>
-<div class="tags"><span class="tag">Landing Page</span><span class="tag">EN</span></div></div></a>
+<a class="demo" href="demos/falcon-logistics.html" target="_blank" rel="noopener">
+<div class="chrome"><i class="dot"></i><i class="dot"></i><i class="dot"></i><span class="urlbar">dar.studio/falcon</span></div>
+<div class="preview" style="--pv-bg:radial-gradient(420px 200px at 50% -30%,#38bdf820,transparent),#090c11;--pv-accent:#38bdf8">
+<div class="pv-nav"><span class="pv-logo"></span><span class="pv-dots"><i></i><i></i><i></i></span></div>
+<div class="pv-hero"><span class="pv-badge"></span><div class="pv-h">Falcon Freight</div><div class="pv-line"></div><span class="pv-btn"></span></div>
+</div>
+<div class="meta"><h3>Falcon Freight<small>لوجستيك خليجي · إنجليزي · سماوي</small></h3><span class="pv-open">معاينة <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></span></div>
+</a>
 
 </div>
 </div></section>
 
-<section id="pricing"><div class="wrap">
-<h2>أسعار واضحة — بدون مفاجآت</h2>
-<p class="sec-sub">كل سعر شامل التصميم والتنفيذ والتعديلات. الدفع بعد ما توافق على النموذج المخصص لك.</p>
-<div class="pricing">
+<section id="pricing" style="background:var(--bg-elev);border-block:1px solid var(--line)"><div class="wrap">
+<div class="sec-head">
+<span class="sec-num">02 — PRICING</span>
+<h2>سعر ثابت معلن. بدون مفاجآت.</h2>
+<p>كل باقة تشمل التصميم الكامل والتنفيذ والتسليم — والدفع بعد ما توافق على المعاينة الخاصة.</p>
+</div>
+<div class="plans">
 
 <div class="plan hot">
-<span class="hot-badge">الأكثر طلبًا</span>
-<h3>📄 صفحة هبوط</h3>
-<div class="price">$149<small> USD</small></div>
-<ul><li>تصميم فاخر متجاوب مع كل الشاشات</li><li>محتوى عربي أو إنجليزي</li><li>سرعة تحميل ممتازة + SEO أساسي</li><li>تسليم 24 ساعة + تعديلين مجانًا</li></ul>
-<a class="buy" href="#order">اطلب صفحتك</a>
+<span class="hot-tag">الأكثر طلبًا</span>
+<h3>صفحة هبوط فاخرة</h3>
+<div class="price">$149<small>/ قطعة</small></div>
+<ul>
+<li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>تصميم مخصص بهوية علامتك — لا قوالب جاهزة</li>
+<li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>عربي RTL أو إنجليزي — بجودة نطق عالمية</li>
+<li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>سرعة تحميل 95+ و SEO تقني أساسي</li>
+<li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>ربط دومينك ونشر كامل</li>
+<li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>تسليم ٢٤ ساعة + تعديلان مجانًا</li>
+</ul>
+<a class="btn btn-gold" href="#contact">ابدأ صفحتك</a>
 </div>
 
 <div class="plan">
-<h3>🤖 بوت تيليجرام</h3>
-<div class="price">$199<small> USD</small></div>
-<ul><li>جمع عملاء محتملين تلقائيًا</li><li>ردود آلية على الأسئلة الشائعة</li><li>لوحة متابعة العملاء لصاحب البوت</li><li>تسليم 48 ساعة + إعداد كامل بالنيابة عنك</li></ul>
-<a class="buy" href="#order">اطلب البوت</a>
+<h3>بوت تيليجرام للمبيعات</h3>
+<div class="price">$199<small>/ قطعة</small></div>
+<ul>
+<li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>يلتقط العملاء المحتملين تلقائيًا</li>
+<li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>ردود ذكية على الأسئلة الشائعة</li>
+<li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>لوحة عملاء ليك: تصدير وبث رسائل</li>
+<li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>إعداد كامل بالنيابة عنك + تدريب مصغر</li>
+<li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>تسليم ٤٨ ساعة</li>
+</ul>
+<a class="btn btn-ghost" href="#contact">اطلب البوت</a>
 </div>
 
 <div class="plan">
-<h3>⚙️ أتمتة Python</h3>
-<div class="price">$149<small> USD</small></div>
-<ul><li>أتمتة مهامك المتكررة بالكامل</li><li>ترتيب ملفات، تقارير، مراقبة، رسائل</li><li>شرح استخدام بالفيديو أو PDF</li><li>تسليم 24 ساعة + تعديلين</li></ul>
-<a class="buy" href="#order">اطلب الأتمتة</a>
+<h3>أتمتة Python مخصصة</h3>
+<div class="price">$149<small>/ مهمة</small></div>
+<ul>
+<li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>نؤتمت أي عمل متكرر عندك</li>
+<li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>ملفات، تقارير، مراقبة صفحات، رسائل مخصصة</li>
+<li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>شرح استخدام مصور + كود مفتوح لك</li>
+<li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>تشغيل على جهازك أو سيرفرك</li>
+<li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>تسليم ٢٤ ساعة + تعديلان</li>
+</ul>
+<a class="btn btn-ghost" href="#contact">اطلب أتمتة</a>
 </div>
 
-</div>
-
-<div class="revisions">
-<div class="rev"><h4>🔁 تعديلات مشمولة</h4><p>تعديلان مجانيان على المحتوى والألوان بعد التسليم — راحتك أهم من أي شيء.</p></div>
-<div class="rev"><h4>👀 تشوف قبل ما تدفع</h4><p>نبعتلك معاينة مباشرة لنسختك الخاصة، والدفع بعد موافقتك عليها.</p></div>
-<div class="rev"><h4>🔒 دفع آمن</h4><p>USDC على شبكة Base أو USDT — إيصالك على البلوكتشين هو ضمانتك.</p></div>
 </div>
 </div></section>
 
-<section><div class="wrap">
-<h2>إزاي بنشتغل؟</h2>
-<p class="sec-sub">أربع خطوات تفصلك عن منتجك.</p>
-<div class="how">
-<div class="step"><b>اختار نموذجًا</b><p>من المعرض فوق — أو وصّلنا فكرتك لو عندك رؤية مختلفة.</p></div>
-<div class="step"><b>كلّمنا واتساب</b><p>نفهم مشروعك ونأكد السعر والمدة في دقايق.</p></div>
-<div class="step"><b>معاينة خاصة</b><p>نبعتلك نسخة مخصصة بعلامتك التجارية — تعدّل براحتك.</p></div>
-<div class="step"><b>دفع وتسليم</b><p>بعد موافقتك تدفع وتستلم كل الملفات والملكية الكاملة.</p></div>
+<section id="process"><div class="wrap">
+<div class="sec-head">
+<span class="sec-num">03 — PROCESS</span>
+<h2>أربع خطوات. صفر مفاجآت.</h2>
+</div>
+<div class="steps">
+<div class="step"><span class="step-n">STEP / 01</span><h3>اختار نموذجًا</h3><p>من المعرض فوق، أو وصّلنا رؤيتك لو مختلفة تمامًا.</p></div>
+<div class="step"><span class="step-n">STEP / 02</span><h3>محادثة قصيرة</h3><p>واتساب أو تيليجرام — نفهم مشروعك ونثبّت السعر والمدة.</p></div>
+<div class="step"><span class="step-n">STEP / 03</span><h3>معاينة خاصة بك</h3><p>نبعتلك نسختك الخاصة بعلامتك. تعديلات غير محدودة على المعاينة.</p></div>
+<div class="step"><span class="step-n">STEP / 04</span><h3>دفع وتسليم</h3><p>بعد موافقتك: USDC/USDT على Base، وتستلم كل شيء فورًا.</p></div>
+</div>
+
+<div class="guar" style="margin-top:26px">
+<div class="g-card"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><h3>التزام بالمواعيد</h3><p>لو اتأخرنا عن الموعد المتفق عليه، خصم ١٥٪ تلقائيًا.</p></div>
+<div class="g-card"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M21 12a9 9 0 1 1-2.6-6.4M21 3v6h-6"/></svg><h3>تعديلان بعد التسليم</h3><p>مش معاينة بس — تعديلات حقيقية بعد ما تستلم.</p></div>
+<div class="g-card"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/></svg><h3>شفافية كاملة</h3><p>تشوف المعاينة قبل أي دفع. ولا جنيه قبل رضاك.</p></div>
 </div>
 </div></section>
 
-<section id="order"><div class="wrap">
-<div class="contact-box">
-<h2>جاهز تبدأ؟ كلمنا على واتساب مباشرة</h2>
-<p style="color:var(--mut)">ردنا خلال ساعات العمل بأقل من ٣٠ دقيقة — استشارة أولى مجانية تمامًا.</p>
-<a class="wa" href="https://wa.me/201000000000?text=%D8%B9%D8%A7%D9%88%D8%B2%20%D8%A3%D8%B3%D8%AA%D9%81%D8%B3%D8%B1%20%D8%B9%D9%86%20%D8%AE%D8%AF%D9%85%D8%A9%20%D9%85%D9%86%20Dar" target="_blank">💬 تواصل واتساب فوري</a>
-<p class="alt">أو على تيليجرام: <a href="https://t.me/DarStudioBot" style="color:var(--gold)">@DarStudioBot</a> — أو الإيميل: hello@sanaya.works</p>
+<section id="faq"><div class="wrap">
+<div class="sec-head">
+<span class="sec-num">04 — FAQ</span>
+<h2>أسئلة بتتكرر</h2>
+</div>
+<div class="faq">
+<details open><summary>الدفع إزاي بيتم؟<span class="pm">+</span></summary><p>USDC أو USDT على شبكة Base (رسوم أقل من سنت). الدفع بيكون بعد موافقتك على المعاينة الخاصة — مش قبله.</p></details>
+<details><summary>هل التصميم هيكون فريدًا لي؟<span class="pm">+</span></summary><p>أيوة. النماذج هنا مجرد نقطة انطلاق تختار منها الاتجاه البصري — نسختك بتتبني من الصفر بألوانك وخطوطك ومحتواك، ومش هتتنشر كقالب لحد تاني.</p></details>
+<details><summary>لو مش عاجبني الشغل؟<span class="pm">+</span></summary><p>في مرحلة المعاينة تعدّل براحتك لحد ما تبقى مبسوط — والدفع أصلاً مش بيتم غير بعد موافقتك النهائية.</p></details>
+<details><summary>بتشتغلوا مع عملاء خارج مصر؟<span class="pm">+</span></summary><p>نعم — الخليج والعالم العربي وأي عميل أجنبي. التواصل بالعربي أو الإنجليزي، والدفع بالكريبتو بيخلّي الأمور أبسط للجميع.</p></details>
+<details><summary>إيه اللي هستلمه بالظبط؟<span class="pm">+</span></summary><p>كل ملفات المشروع ملكك بالكامل: الكود، التصميم، والمحتوى — مع شرح نشر بسيط أو ننشره لك مباشرة.</p></details>
 </div>
 </div></section>
 
-<footer><div class="wrap">
-<div class="links"><a href="#demos">النماذج</a> · <a href="#pricing">الأسعار</a> · <a href="#order">تواصل</a></div>
-© 2026 Dar Studio دار — جميع الحقوق محفوظة
+<section id="contact"><div class="wrap">
+<div class="final">
+<h2>مشروعك الجاهز يبدأ برسالة واحدة</h2>
+<p>ابعتلنا النموذج اللي عجبك وفكرتك — وهنرجعلك بمعاينة أولية وخطة سعر في نفس اليوم غالبًا.</p>
+<div class="row">
+<a class="btn btn-gold" href="https://wa.me/201000000000?text=%D8%B9%D8%A7%D9%88%D8%B2%20%D8%A3%D8%A8%D8%AF%D8%A3%20%D9%85%D8%B4%D8%B1%D9%88%D8%B9%20%D9%85%D8%B9%20Dar%20Studio" target="_blank" rel="noopener">
+<svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.2c-.2.6-1.2 1.2-1.7 1.2-.4.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.6-2.6-1.1-4.3-3.8-4.4-4-.1-.2-1-1.4-1-2.6s.6-1.8.9-2c.2-.3.5-.3.7-.3h.5c.2 0 .4-.1.6.4.2.6.8 1.9.8 2 .1.1.1.3 0 .4-.3.7-.7 1-.5 1.3.7 1.2 1.6 2.1 2.8 2.7.3.2.5.1.7-.1.2-.3.9-1 1.1-1.4.2-.3.4-.2.6-.1l2 1c.3.1.5.2.5.3.1.1.1.7-.1 1.2z"/></svg>
+تواصل واتساب</a>
+<a class="btn btn-ghost" href="https://t.me/DarStudioBot" target="_blank" rel="noopener">
+<svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M21.9 3.4 2.9 10.7c-1.1.4-1.1 1.9 0 2.3l4.6 1.5 1.7 5.4c.3 1 1.6 1.2 2.2.4l2.5-3 4.6 3.4c.8.6 2 .2 2.2-.9l3-14.9c.2-1.1-.9-2-1.8-1.5zM8.5 13.9l9.3-5.8c.4-.3.8.3.5.6l-7.6 7.1c-.3.3-.5.6-.5 1l-.2 1.9c-.1.5-.7.5-.9.1l-1-3.4c-.2-.5 0-1.2.4-1.5z"/></svg>
+تيليجرام</a>
+</div>
+<p class="alt" style="color:var(--faint);font-size:.8rem;margin-top:18px">متوسط زمن الرد: أقل من ساعة · hello@darstudio.works</p>
+</div>
+</div></section>
+
+<footer><div class="wrap foot-in">
+<span>© 2026 Dar Studio — دار ستوديو</span>
+<span class="en" style="letter-spacing:.15em;font-size:.7rem">BUILT DIFFERENT · DELIVERED FAST</span>
 </div></footer>
 
 </body>
