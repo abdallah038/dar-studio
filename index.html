@@ -52,7 +52,7 @@ h1{font-weight:600;font-size:clamp(2.7rem,6.4vw,4.3rem);letter-spacing:-.038em;l
 .hero-sub{color:var(--mut);font-size:17px;max-width:600px;margin:auto;font-weight:400}
 .hero-btns{margin-top:38px;display:flex;gap:13px;justify-content:center;flex-wrap:wrap}
 .btn{display:inline-flex;align-items:center;gap:8px;border-radius:10px;padding:12px 24px;font-size:14.5px;font-weight:600;transition:.18s}
-.btn-white{background:#fff;color:#050506}
+.btn-white{background:linear-gradient(180deg,#ffffff,#dededf);color:#050506}
 .btn-white:hover{background:#e8e8ec;transform:translateY(-1px)}
 .btn-line{border:1px solid var(--line2);color:var(--txt)}
 .btn-line:hover{border-color:rgba(255,255,255,.28)}
@@ -85,20 +85,20 @@ section{padding:100px 0}
 
 /* pricing */
 .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.plan{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:30px 28px;transition:.2s;position:relative}
+.plan{background:#101013;border:1px solid rgba(255,255,255,.11);border-radius:14px;padding:32px 30px;transition:.2s;position:relative}
 .plan:hover{border-color:var(--line2)}
-.plan.feat{border-color:#e8c96a44;background:linear-gradient(180deg,#15120a,#0b0b0d)}
-.flag{position:absolute;top:14px;inset-inline-end:14px;font-size:11px;color:var(--acc);
- border:1px solid #e8c96a33;border-radius:99px;padding:3px 11px;letter-spacing:.04em}
+.plan.feat{border-color:rgba(232,201,106,.35);background:linear-gradient(180deg,#141109,#0c0b09);box-shadow:0 0 0 1px #e8c96a1c,0 18px 60px #e8c96a10}
+.flag{position:absolute;top:16px;inset-inline-end:16px;font-family:'JetBrains Mono';font-size:10px;color:var(--acc);
+ border:1px solid #e8c96a2b;border-radius:99px;padding:4px 12px;letter-spacing:.12em;background:#e8c96a08}
 .plan h3{font-size:15px;font-weight:600;color:var(--mut)}
 .price{font-size:40px;font-weight:650;letter-spacing:-.04em;margin:14px 0 4px}
 .price small{font-size:14px;color:var(--dim);font-weight:450;letter-spacing:0}
 .plan ul{list-style:none;margin:22px 0 28px;display:grid;gap:11px}
 .plan li{display:flex;gap:10px;font-size:13.8px;color:#c9c9cf;align-items:flex-start}
 .plan li svg{flex:none;margin-top:4px}
-.buy{display:block;text-align:center;padding:11px;border-radius:9px;font-weight:600;font-size:14px;
- border:1px solid var(--line2);transition:.18s}
-.buy.gold{background:#fff;color:#050506;border-color:#fff}
+.buy{display:block;text-align:center;padding:12px;border-radius:10px;font-weight:600;font-size:14px;
+ border:1px solid var(--line2);color:var(--txt);transition:.18s}
+.buy.gold{background:linear-gradient(180deg,#ffffff,#d9d9de);color:#050506;border-color:transparent}
 .buy:hover{transform:translateY(-1px)}
 
 /* process */
@@ -180,7 +180,7 @@ footer{border-top:1px solid var(--line);padding:34px 0;color:var(--dim);font-siz
 <h2 class="ar">سعر ثابت. معاينة قبل الدفع. صفر مفاجآت.</h2>
 <p class="ar">كل باقة تشمل التصميم والتنفيذ والنشر وتعديلين مجانيين بعد التسليم.</p>
 </div>
-<div class="plans">
+<div class="plans" style="margin-top:44px">
 
 <div class="plan feat rv">
 <span class="flag mono">MOST BOOKED</span>
