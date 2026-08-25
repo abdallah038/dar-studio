@@ -3,361 +3,343 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dar Studio — دار | Landing Pages · Bots · Automation</title>
-<meta name="description" content="Dar Studio builds premium landing pages, Telegram bots and Python automation. Fixed price, 24h delivery, free revisions.">
+<title>DAR دار — Digital Studio | صفحات هبوط وبوتات وأتمتة</title>
+<meta name="description" content="Dar Studio — premium digital products. Luxury landing pages, Telegram bots & Python automation. Fixed prices, 24h delivery, live demos.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,600;6..96,700&family=Jost:wght@300;400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
-/* ---------- Design tokens (ui-ux-pro-max: semantic, 9-shade neutral) ---------- */
+/* ============ DAR DESIGN SYSTEM v2 — ui-ux-pro-max derived ============
+   Palette: E-commerce Luxury (dark) — #1C1917 / #A16207 gold / #FAFAF9
+   Type:    Bodoni Moda (display EN) + Jost (body EN) + IBM Plex Sans Arabic
+   Style:   OLED dark + subtle glass + bento grid + motion-driven reveals   */
 :root{
-  --bg:#050506;            /* OLED-safe */
-  --bg-elev:#0b0c0f;
-  --surface:#101216;
-  --card:#0e0f13;
-  --line:rgba(255,255,255,.07);
-  --line-strong:rgba(255,255,255,.12);
-  --txt:#f4f4f5;
-  --txt-2:#c8ccd2;
-  --mut:#98a0aa;
-  --faint:#62676f;
-  --accent:#e6c15c;        /* single luxe accent — CTAs only */
-  --accent-deep:#b8933c;
-  --ok:#34d399;
-  --font-ar:'IBM Plex Sans Arabic',system-ui,sans-serif;
-  --font-en:'Sora',var(--font-ar);
-  --r-lg:20px;--r-md:14px;--r-sm:10px;
+  --bg:#0c0a09; --bg2:#141210; --card:#1c1917cc; --card-solid:#1c1917;
+  --line:#292524; --line2:#3b3734;
+  --txt:#fafaf9; --mut:#a8a29e; --dim:#78716c;
+  --gold:#d4af37; --gold2:#a16207; --gold-soft:#d4af3722;
+  --em:#34d399;
+  --r-lg:22px; --r-md:16px;
+  --shadow:0 20px 60px #00000066;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--txt);font-family:var(--font-ar);line-height:1.75;-webkit-font-smoothing:antialiased}
-::selection{background:#e6c15c33}
-:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
-img,svg{display:block}
-.wrap{max-width:1080px;margin:auto;padding:0 24px}
-.en{font-family:var(--font-en)}
+body{background:var(--bg);color:var(--txt);font-family:'Jost','IBM Plex Sans Arabic',sans-serif;line-height:1.75;overflow-x:hidden}
+::selection{background:var(--gold);color:#141001}
+.ar{font-family:'IBM Plex Sans Arabic',sans-serif}
+.display{font-family:'Bodoni Moda',serif}
+.wrap{max-width:1120px;margin:auto;padding:0 24px}
+a{color:inherit;text-decoration:none}
 
-/* ---------- Nav ---------- */
-nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:#050506cc;border-bottom:1px solid var(--line)}
-.nav-in{display:flex;justify-content:space-between;align-items:center;height:68px}
-.logo{display:flex;align-items:center;gap:11px;font-weight:700}
-.logo-mark{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,#e6c15c,#8a6d24);display:grid;place-items:center;color:#151004;font-family:var(--font-en);font-weight:800;font-size:.95rem}
-.logo b{font-size:1.02rem}
-.logo small{display:block;color:var(--faint);font-size:.6rem;letter-spacing:.28em;font-family:var(--font-en)}
-.nav-links{display:flex;gap:26px;color:var(--txt-2);font-size:.88rem}
-.nav-links a:hover{color:var(--accent)}
-.nav-cta{color:#151004;background:var(--accent);padding:10px 22px;border-radius:11px;font-weight:700;font-size:.88rem;transition:.2s;min-height:42px;display:inline-flex;align-items:center}
-.nav-cta:hover{filter:brightness(1.08)}
-@media(max-width:720px){.nav-links{display:none}}
+/* ---------- grain + glow ambience ---------- */
+body::before{content:"";position:fixed;inset:0;z-index:-2;background:
+ radial-gradient(900px 420px at 85% -10%,#d4af370f,transparent),
+ radial-gradient(700px 400px at -10% 30%,#d4af3708,transparent),var(--bg)}
+body::after{content:"";position:fixed;inset:0;z-index:-1;opacity:.35;pointer-events:none;
+ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='.05'/%3E%3C/svg%3E")}
 
-/* ---------- Buttons ---------- */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:52px;padding:13px 32px;border-radius:14px;font-weight:700;font-size:.98rem;text-decoration:none;transition:transform .18s,box-shadow .18s,filter .18s}
-.btn-gold{background:linear-gradient(180deg,#f0cd70,var(--accent) 55%,var(--accent-deep));color:#171104;box-shadow:0 10px 34px -8px #e6c15c66,inset 0 1px 0 #fff5}
-.btn-gold:hover{transform:translateY(-2px);box-shadow:0 16px 44px -8px #e6c15c88}
-.btn-ghost{border:1px solid var(--line-strong);color:var(--txt)}
-.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+/* ---------- nav ---------- */
+nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+ background:#0c0a09d9;border-bottom:1px solid var(--line)}
+.nav-in{display:flex;justify-content:space-between;align-items:center;padding:16px 0}
+.logo{display:flex;align-items:center;gap:12px}
+.logo-mark{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;
+ font-family:'Bodoni Moda',serif;font-size:1.25rem;font-weight:700;color:#141001;
+ background:linear-gradient(135deg,#f0d060,var(--gold) 55%,var(--gold2));
+ box-shadow:0 6px 22px #d4af3744}
+.logo-txt b{font-family:'Bodoni Moda',serif;font-size:1.15rem;letter-spacing:.04em;display:block;line-height:1.1}
+.logo-txt small{font-size:.62rem;color:var(--dim);letter-spacing:.32em;font-weight:500}
+.nav-links{display:flex;gap:26px;font-size:.92rem;color:var(--mut)}
+.nav-links a:hover{color:var(--gold)}
+.nav-cta{background:linear-gradient(135deg,#f0d060,var(--gold));color:#141001;padding:10px 24px;border-radius:12px;font-weight:700;font-size:.9rem;transition:.25s;box-shadow:0 6px 24px #d4af3733}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 10px 34px #d4af374d}
 
-/* ---------- Hero ---------- */
-.hero{position:relative;text-align:center;padding:110px 0 90px;overflow:hidden}
-.hero::before{content:"";position:absolute;inset:-40% -20% auto;height:130%;
- background:radial-gradient(640px 340px at 50% 0%,#e6c15c14,transparent 65%),
-            radial-gradient(900px 420px at 82% -10%,#e6c15c09,transparent 60%);
- pointer-events:none}
-.kicker{position:relative;display:inline-flex;align-items:center;gap:9px;color:var(--accent);font-size:.74rem;letter-spacing:.22em;font-family:var(--font-en);border:1px solid #e6c15c38;background:#e6c15c0a;padding:7px 18px;border-radius:99px;margin-bottom:26px}
-.kicker i{width:6px;height:6px;border-radius:50%;background:var(--accent);box-shadow:0 0 12px var(--accent)}
-h1{position:relative;font-size:clamp(2rem,5.4vw,3.55rem);font-weight:800;line-height:1.22;letter-spacing:-.02em}
-h1 .grad{background:linear-gradient(100deg,#f4dfa0,var(--accent) 45%,#a87f2e);-webkit-background-clip:text;background-clip:text;color:transparent}
-.hero .sub{position:relative;color:var(--mut);max-width:620px;margin:20px auto 36px;font-size:1.06rem;font-weight:300}
-.hero-ctas{position:relative;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+/* ---------- hero ---------- */
+.hero{text-align:center;padding:110px 0 80px;position:relative}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;color:var(--gold);border:1px solid #d4af3733;
+ background:#d4af370a;padding:7px 20px;border-radius:99px;font-size:.8rem;letter-spacing:.14em;margin-bottom:30px}
+.hero-badge i{width:7px;height:7px;border-radius:50%;background:var(--em);box-shadow:0 0 12px var(--em);animation:pulse 2.2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+h1{font-family:'Bodoni Moda',serif;font-weight:600;font-size:clamp(2.6rem,7vw,4.6rem);line-height:1.12;letter-spacing:-.01em}
+h1 .ar-h1{font-family:'IBM Plex Sans Arabic';font-weight:700}
+h1 em{font-style:normal;color:transparent;background:linear-gradient(120deg,#f5e08a,var(--gold) 45%,#9a7b1a);
+ -webkit-background-clip:text;background-clip:text}
+.hero-sub{color:var(--mut);max-width:660px;margin:26px auto 0;font-size:1.13rem;font-weight:300}
+.hero-actions{margin-top:40px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn-primary{background:linear-gradient(135deg,#f0d060,var(--gold) 55%,var(--gold2));color:#141001;
+ padding:17px 46px;border-radius:15px;font-weight:700;font-size:1.02rem;transition:.3s;
+ box-shadow:0 10px 44px #d4af3740}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 18px 60px #d4af3759}
+.btn-ghost{border:1px solid var(--line2);padding:17px 40px;border-radius:15px;color:var(--txt);transition:.3s;font-weight:500}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
 
-/* trust strip */
-.trust-strip{position:relative;margin-top:64px;border-block:1px solid var(--line);padding:22px 0;display:flex;justify-content:center;gap:clamp(24px,5vw,64px);flex-wrap:wrap;color:var(--txt-2);font-size:.86rem}
-.trust-strip span{display:flex;align-items:center;gap:9px}
-.trust-strip svg{width:17px;height:17px;stroke:var(--accent)}
+/* ---------- marquee trust strip ---------- */
+.strip{border-block:1px solid var(--line);background:var(--bg2);
+ display:flex;justify-content:center;gap:56px;padding:20px 24px;flex-wrap:wrap;
+ font-size:.85rem;color:var(--mut);letter-spacing:.06em}
+.strip b{color:var(--gold);font-weight:600}
 
-/* ---------- Sections ---------- */
-section{padding:92px 0}
-.sec-head{text-align:center;max-width:620px;margin:0 auto 54px}
-.sec-head h2{font-size:clamp(1.5rem,3.4vw,2.15rem);font-weight:800;letter-spacing:-.015em;line-height:1.3}
-.sec-head p{color:var(--mut);margin-top:12px;font-weight:300}
-.sec-num{display:block;font-family:var(--font-en);color:var(--accent);letter-spacing:.3em;font-size:.68rem;margin-bottom:14px}
+/* ---------- section headers ---------- */
+section{padding:88px 0}
+.sec-head{text-align:center;margin-bottom:52px}
+.sec-kicker{color:var(--gold2);letter-spacing:.28em;font-size:.72rem;font-weight:600;text-transform:uppercase}
+.sec-head h2{font-family:'Bodoni Moda',serif;font-weight:600;font-size:clamp(1.9rem,4.5vw,2.9rem);margin:14px 0 12px}
+.sec-head p{color:var(--mut);max-width:600px;margin:auto}
 
-/* ---------- Demo cards : real browser-chrome previews ---------- */
-.demos{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:22px}
-.demo{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;text-decoration:none;color:inherit;transition:transform .25s,border-color .25s,box-shadow .25s}
-.demo:hover{transform:translateY(-6px);border-color:#e6c15c59;box-shadow:0 22px 60px -18px #000c}
-.chrome{display:flex;gap:6px;align-items:center;padding:10px 14px;background:#14151b;border-bottom:1px solid var(--line)}
-.dot{width:9px;height:9px;border-radius:50%;background:#2c2f37}
-.urlbar{flex:1;margin-inline-start:6px;background:#0a0b0e;border:1px solid var(--line);border-radius:7px;color:var(--faint);font-family:var(--font-en);font-size:.62rem;padding:4px 11px;direction:ltr;text-align:left;white-space:nowrap;overflow:hidden}
-.preview{height:172px;position:relative;overflow:hidden;background:var(--pv-bg,#0d0f14)}
-.preview::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,#0e0f1399)}
-.pv-nav{display:flex;justify-content:space-between;align-items:center;padding:13px 20px;font-size:.56rem;color:var(--pv-accent);opacity:.85}
-.pv-logo{width:46px;height:8px;border-radius:4px;background:currentColor;opacity:.9}
-.pv-dots{display:flex;gap:5px}.pv-dots i{width:16px;height:5px;border-radius:3px;background:currentColor;opacity:.35}
-.pv-hero{text-align:center;padding:20px 26px 0}
-.pv-badge{display:inline-block;width:74px;height:9px;border-radius:5px;background:currentColor;opacity:.5}
-.pv-h{margin-top:12px;font-weight:800;color:#eceef1;font-size:1.06rem;letter-spacing:-.01em;line-height:1.3}
-.pv-line{width:min(240px,72%);height:7px;border-radius:4px;background:#ffffff14;margin:11px auto 0}
-.pv-btn{display:inline-block;margin-top:15px;width:96px;height:26px;border-radius:8px;background:linear-gradient(180deg,var(--pv-accent),color-mix(in srgb,var(--pv-accent) 70%,black));box-shadow:0 6px 18px -4px var(--pv-accent)}
-.demo .meta{padding:19px 22px 21px;display:flex;justify-content:space-between;align-items:center;gap:10px}
-.demo h3{font-size:.99rem;font-weight:600}
-.demo h3 small{display:block;color:var(--mut);font-weight:400;font-size:.78rem;margin-top:3px}
-.pv-open{flex-shrink:0;display:inline-flex;align-items:center;gap:6px;color:var(--accent);font-size:.8rem;font-weight:600}
-.pv-open svg{width:14px;height:14px;stroke:currentColor}
-.demo:hover .pv-open{text-decoration:underline}
+/* ---------- bento demos ---------- */
+.bento{display:grid;grid-template-columns:repeat(6,1fr);gap:18px}
+.b-demo{grid-column:span 2;background:var(--card);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+ border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;text-decoration:none;
+ transition:.35s cubic-bezier(.2,.7,.3,1);position:relative;display:block}
+.b-demo:nth-child(1),.b-demo:nth-child(6){grid-column:span 3}
+.b-demo:hover{transform:translateY(-6px);border-color:#d4af3766;box-shadow:var(--shadow)}
+.b-thumb{height:190px;position:relative;display:grid;place-items:center;font-size:3rem;overflow:hidden}
+.b-thumb::before{content:"";position:absolute;inset:0;background:
+ linear-gradient(135deg,#d4af3714 0%,transparent 45%),radial-gradient(400px 160px at 70% -20%,#d4af3712,transparent)}
+.b-demo .glyph{filter:drop-shadow(0 10px 24px #000a);transition:.4s}
+.b-demo:hover .glyph{transform:scale(1.12) rotate(-3deg)}
+.b-open{position:absolute;bottom:14px;inset-inline-end:16px;font-size:.72rem;letter-spacing:.12em;
+ color:var(--gold);opacity:0;transform:translateY(6px);transition:.3s}
+.b-demo:hover .b-open{opacity:1;transform:none}
+.b-meta{padding:22px 24px 24px}
+.b-meta h3{font-family:'Bodoni Moda',serif;font-size:1.18rem;font-weight:600;letter-spacing:.01em}
+.b-meta .ar-t{font-family:'IBM Plex Sans Arabic';font-weight:700}
+.b-meta p{color:var(--mut);font-size:.86rem;margin-top:6px}
+.b-tags{display:flex;gap:7px;margin-top:14px;flex-wrap:wrap}
+.tag{font-size:.68rem;color:var(--mut);border:1px solid var(--line2);padding:3px 11px;border-radius:99px;letter-spacing:.04em}
+.tag.hot{color:var(--gold);border-color:#d4af3744}
 
-/* ---------- Pricing ---------- */
-.plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:22px;align-items:stretch}
-.plan{position:relative;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:34px 30px;display:flex;flex-direction:column;transition:.25s}
-.plan:hover{border-color:var(--line-strong);transform:translateY(-4px)}
-.plan.hot{border-color:#e6c15c4d;background:linear-gradient(170deg,#131109,var(--card))}
-.hot-tag{position:absolute;top:-12px;inset-inline-start:28px;background:var(--accent);color:#171104;font-size:.66rem;font-weight:800;padding:4px 14px;border-radius:99px;letter-spacing:.04em}
-.plan h3{font-size:1rem;font-weight:600;color:var(--txt-2)}
-.price{font-family:var(--font-en);font-size:2.5rem;font-weight:800;letter-spacing:-.03em;margin:14px 0 2px}
-.price small{font-size:.8rem;color:var(--mut);font-weight:400;letter-spacing:0}
-.plan ul{list-style:none;margin:22px 0 28px;flex:1}
-.plan li{display:flex;gap:11px;padding:7px 0;color:var(--txt-2);font-size:.88rem;align-items:flex-start}
-.plan li svg{width:16px;height:16px;stroke:var(--ok);flex-shrink:0;margin-top:5px}
-.plan .btn{width:100%}
+/* ---------- pricing cards ---------- */
+.plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;align-items:stretch}
+.plan{background:linear-gradient(170deg,#1c1917f2,#141210);border:1px solid var(--line);border-radius:var(--r-lg);
+ padding:38px 32px;display:flex;flex-direction:column;position:relative;transition:.35s}
+.plan:hover{transform:translateY(-6px);border-color:#d4af3755;box-shadow:var(--shadow)}
+.plan.featured{border-color:#d4af3766;background:linear-gradient(170deg,#221d0ef5,#161310);
+ box-shadow:0 0 0 1px #d4af3722,0 24px 80px #d4af3714}
+.plan .flag{position:absolute;top:-13px;inset-inline-start:30px;background:linear-gradient(135deg,#f0d060,var(--gold));
+ color:#141001;font-size:.68rem;font-weight:800;letter-spacing:.1em;padding:5px 16px;border-radius:99px}
+.plan h3{font-family:'Bodoni Moda',serif;font-size:1.3rem;font-weight:600}
+.plan .p-num{font-family:'Bodoni Moda',serif;font-size:2.9rem;font-weight:700;color:var(--gold);margin:16px 0 2px;line-height:1}
+.plan .p-num small{font-size:.95rem;color:var(--mut);font-family:'Jost'}
+.plan ul{list-style:none;margin:24px 0 30px;flex:1}
+.plan li{padding:8px 0;color:#cdc6bd;font-size:.93rem;display:flex;gap:11px;align-items:flex-start;border-bottom:1px dashed #29252455}
+.plan li:last-child{border:none}
+.plan li svg{flex-shrink:0;margin-top:5px}
 
-/* ---------- Process ---------- */
-.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:18px}
-.step{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:28px 24px;position:relative}
-.step-n{font-family:var(--font-en);font-size:.72rem;color:var(--accent);letter-spacing:.2em;margin-bottom:14px;display:block}
-.step h3{font-size:1rem;margin-bottom:7px}
-.step p{color:var(--mut);font-size:.86rem;font-weight:300}
-.step::after{content:"";position:absolute;top:38px;inset-inline-end:-19px;width:18px;height:1px;background:var(--line-strong)}
-.step:last-child::after{display:none}
+/* ---------- process ---------- */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.step{background:var(--card);border:1px solid var(--line);border-radius:var(--r-md);padding:30px 26px;position:relative;transition:.3s}
+.step:hover{border-color:#d4af3744;transform:translateY(-4px)}
+.step-n{font-family:'Bodoni Moda',serif;font-size:2.4rem;color:#d4af3733;font-weight:700;line-height:1;margin-bottom:14px}
+.step b{display:block;margin-bottom:8px;font-size:1.02rem}
+.step p{color:var(--mut);font-size:.87rem}
 
-/* ---------- Guarantee ---------- */
-.guar{display:grid;grid-template-columns:repeat(auto-fit,minmax(225px,1fr));gap:18px}
-.g-card{border:1px solid var(--line);border-radius:18px;padding:26px;background:linear-gradient(160deg,#0d0e12,var(--bg-elev))}
-.g-card svg{width:26px;height:26px;stroke:var(--accent);margin-bottom:16px}
-.g-card h3{font-size:.95rem;margin-bottom:6px}
-.g-card p{color:var(--mut);font-size:.84rem;font-weight:300}
+/* ---------- guarantees ---------- */
+.guarantee{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.g-card{border:1px solid var(--line);border-radius:var(--r-md);padding:28px;background:linear-gradient(150deg,#d4af3708,transparent 60%),var(--bg2)}
+.g-card h4{color:var(--gold);margin-bottom:8px;font-size:1rem;display:flex;gap:9px;align-items:center}
+.g-card p{color:var(--mut);font-size:.88rem}
 
-/* ---------- FAQ ---------- */
-.faq{max-width:720px;margin:auto}
-details{border-bottom:1px solid var(--line);padding:4px 2px}
-summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:14px;padding:20px 4px;font-weight:600;font-size:.97rem;min-height:44px}
-summary::-webkit-details-marker{display:none}
-summary .pm{flex-shrink:0;width:26px;height:26px;border:1px solid var(--line-strong);border-radius:8px;display:grid;place-items:center;color:var(--mut);transition:.2s;font-size:1rem;line-height:1}
-details[open] .pm{transform:rotate(45deg);color:var(--accent);border-color:#e6c15c55}
-details p{color:var(--mut);font-size:.9rem;font-weight:300;padding:0 4px 22px;max-width:620px}
+/* ---------- contact ---------- */
+.contact-lux{background:linear-gradient(160deg,#191510f0,#0e0c0a);border:1px solid #d4af3730;
+ border-radius:28px;padding:64px 48px;text-align:center;position:relative;overflow:hidden}
+.contact-lux::before{content:"";position:absolute;inset:0;background:radial-gradient(500px 200px at 50% -40px,#d4af3714,transparent);pointer-events:none}
+.contact-lux h2{font-family:'Bodoni Moda',serif;font-weight:600;font-size:clamp(1.7rem,4vw,2.6rem);margin-bottom:10px}
+.contact-lux p{color:var(--mut);max-width:520px;margin:auto}
+.contact-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:32px}
+.wa-btn{display:inline-flex;align-items:center;gap:11px;background:#25d366;color:#04240f;padding:16px 38px;border-radius:14px;font-weight:800;font-size:1rem;transition:.25s;box-shadow:0 10px 40px #25d36633}
+.wa-btn:hover{transform:translateY(-3px)}
+.tg-btn{display:inline-flex;align-items:center;gap:11px;border:1px solid var(--line2);padding:16px 34px;border-radius:14px;transition:.25s}
+.tg-btn:hover{border-color:var(--gold);color:var(--gold)}
 
-/* ---------- Final CTA ---------- */
-.final{position:relative;border:1px solid #e6c15c33;border-radius:26px;padding:64px 34px;text-align:center;overflow:hidden;background:radial-gradient(520px 260px at 50% -30%,#e6c15c12,transparent),var(--card)}
-.final h2{font-size:clamp(1.5rem,3.6vw,2.2rem);font-weight:800;letter-spacing:-.015em}
-.final p{color:var(--mut);margin:14px auto 30px;max-width:480px;font-weight:300}
-.final .row{display:flex;gap:13px;justify-content:center;flex-wrap:wrap}
+footer{border-top:1px solid var(--line);padding:44px 0;text-align:center;color:var(--dim);font-size:.84rem}
+.f-logo{font-family:'Bodoni Moda',serif;font-size:1.05rem;color:var(--mut);letter-spacing:.06em;margin-bottom:8px}
 
-/* ---------- Footer ---------- */
-footer{border-top:1px solid var(--line);margin-top:96px;padding:44px 0;color:var(--faint);font-size:.82rem}
-.foot-in{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;align-items:center}
-footer a{color:var(--mut)}.footer a:hover{color:var(--accent)}
+/* reveal on scroll */
+.rv{opacity:0;transform:translateY(26px);transition:.7s cubic-bezier(.2,.65,.25,1)}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{transition:none;opacity:1;transform:none}}
 
-@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+@media(max-width:900px){
+ .nav-links{display:none}
+ .bento{grid-template-columns:1fr 1fr}
+ .b-demo{grid-column:span 2!important}
+ .steps{grid-template-columns:1fr 1fr}
+ .guarantee{grid-template-columns:1fr}
+ .contact-lux{padding:44px 24px}
+}
+@media(max-width:560px){
+ .bento{grid-template-columns:1fr}
+ .b-demo{grid-column:span 1!important}
+ .steps{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
 
 <nav><div class="wrap nav-in">
 <a class="logo" href="#">
-<span class="logo-mark en">D</span>
-<span><b>دار ستوديو</b><small>DAR STUDIO</small></span>
+<span class="logo-mark">D</span>
+<span class="logo-txt"><b>DAR</b><small>STUDIO · دار</small></span>
 </a>
-<div class="nav-links en" style="font-family:var(--font-ar)">
-<a href="#work">أعمالنا</a><a href="#pricing">الأسعار</a><a href="#process">آلية العمل</a><a href="#faq">أسئلة</a>
+<div class="nav-links ar">
+<a href="#work">أعمالنا</a><a href="#pricing">الأسعار</a><a href="#process">كيف نشتغل</a>
 </div>
-<a class="nav-cta" href="#contact">اطلب مشروعك</a>
+<a class="nav-cta ar" href="#contact">ابدأ مشروعك</a>
 </div></nav>
 
 <header class="hero"><div class="wrap">
-<span class="kicker"><i></i>DAR STUDIO · DIGITAL PRODUCTS</span>
-<h1>منتج رقمي بجودة استوديو عالمية<br><span class="grad">بيوصلك خلال ٢٤ ساعة</span></h1>
-<p class="sub">صفحات هبوط وبوتات وأتمتة — بسعر ثابت وواضح، تشوف معاينة خاصة قبل الدفع، وتعديلين مجانًا بعد التسليم.</p>
-<div class="hero-ctas">
-<a class="btn btn-gold" href="#pricing">شوف الباقات والأسعار
-<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 12H5m7-7-7 7 7 7"/></svg></a>
-<a class="btn btn-ghost" href="#work">استعرض النماذج الحية</a>
-</div>
-<div class="trust-strip">
-<span><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>تسليم ٢٤–٤٨ ساعة</span>
-<span><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>تعديلان مجانًا</span>
-<span><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/></svg>معاينة قبل الدفع</span>
-<span><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M7 9h10M7 13h6"/></svg>كود نظيف مسلَّم لك</span>
+<span class="hero-badge"><i></i><span class="ar">نستقبل ٣ عملاء جدد هذا الشهر فقط</span></span>
+<h1>حضور رقمي يليق<br>بطموح <em>علامتك التجارية</em></h1>
+<p class="hero-sub ar">صفحات هبوط فاخرة، بوتات تليجرام ذكية، وأنظمة أتمتة Python — تختار التصميم من معرضنا، نخصصه لعلامتك، وتستلمه خلال ٢٤ ساعة. بأسعار ثابتة وبدون مفاجآت.</p>
+<div class="hero-actions">
+<a class="btn-primary ar" href="#pricing">شاهد الأسعار والباقات</a>
+<a class="btn-ghost ar" href="#work">تصفح أعمالنا أولاً</a>
 </div>
 </div></header>
 
+<div class="strip ar">
+<span>⚡ تسليم خلال <b>٢٤ ساعة</b></span>
+<span>🔁 <b>تعديلان مجانيان</b> بعد التسليم</span>
+<span>👁️ <b>معاينة قبل الدفع</b></span>
+<span>💎 ملكية كاملة <b>100%</b></span>
+</div>
+
 <section id="work"><div class="wrap">
-<div class="sec-head">
-<span class="sec-num">01 — WORK</span>
-<h2>نماذج حية — جرّبها بنفسك قبل ما تدفع</h2>
-<p>كل نموذج موقع كامل شغال. اختار الأقرب لمجالك، وإحنا نعيد بناءه بهوية علامتك وألوانك ومحتواك.</p>
+<div class="sec-head rv">
+<p class="sec-kicker">SELECTED WORK · أعمال مختارة</p>
+<h2>ستة أساليب، هوية واحدة لكل عميل</h2>
+<p class="ar">كل نموذج هنا منتج حقيقي شغّال — افتحه، جربه على موبايلك، وتخيّله بعلامتك أنت.</p>
 </div>
-<div class="demos">
+<div class="bento">
 
-<a class="demo" href="demos/lumen-cafe.html" target="_blank" rel="noopener">
-<div class="chrome"><i class="dot"></i><i class="dot"></i><i class="dot"></i><span class="urlbar">dar.studio/lumen-cafe</span></div>
-<div class="preview" style="--pv-bg:radial-gradient(420px 200px at 50% -30%,#d4af3720,transparent),#0b0c10;--pv-accent:#d4af37">
-<div class="pv-nav"><span class="pv-logo"></span><span class="pv-dots"><i></i><i></i><i></i></span></div>
-<div class="pv-hero"><span class="pv-badge"></span><div class="pv-h">Lumen Coffee</div><div class="pv-line"></div><span class="pv-btn"></span></div>
-</div>
-<div class="meta"><h3>Lumen Coffee<small>مقهى مختص · إنجليزي · ذهبي دافئ</small></h3><span class="pv-open">معاينة <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></span></div>
-</a>
+<a class="b-demo rv" href="demos/lumen-cafe.html" target="_blank" rel="noopener">
+<div class="b-thumb"><span class="glyph">☕</span><span class="b-open">OPEN LIVE →</span></div>
+<div class="b-meta"><h3>Lumen Coffee</h3><p class="ar">مقهى مختص — فخامة ذهبية دافئة بإحساس تحريري</p>
+<div class="b-tags"><span class="tag hot">Landing</span><span class="tag">EN</span></div></div></a>
 
-<a class="demo" href="demos/iron-temple.html" target="_blank" rel="noopener">
-<div class="chrome"><i class="dot"></i><i class="dot"></i><i class="dot"></i><span class="urlbar">dar.studio/iron-temple</span></div>
-<div class="preview" style="--pv-bg:radial-gradient(420px 200px at 50% -30%,#f8717120,transparent),#0d0b0c;--pv-accent:#f87171">
-<div class="pv-nav"><span class="pv-logo"></span><span class="pv-dots"><i></i><i></i><i></i></span></div>
-<div class="pv-hero"><span class="pv-badge"></span><div class="pv-h">IRON TEMPLE</div><div class="pv-line"></div><span class="pv-btn"></span></div>
-</div>
-<div class="meta"><h3>Iron Temple<small>جيم قوة · إنجليزي · قرمزي</small></h3><span class="pv-open">معاينة <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></span></div>
-</a>
+<a class="b-demo rv" href="demos/iron-temple.html" target="_blank" rel="noopener">
+<div class="b-thumb"><span class="glyph">🏋️</span><span class="b-open">OPEN LIVE →</span></div>
+<div class="b-meta"><h3>Iron Temple</h3><p class="ar">جيم قوة — طاقة قرمزية وطباعة ضخمة</p>
+<div class="b-tags"><span class="tag hot">Landing</span><span class="tag">EN</span></div></div></a>
 
-<a class="demo" href="demos/nile-digital.html" target="_blank" rel="noopener">
-<div class="chrome"><i class="dot"></i><i class="dot"></i><i class="dot"></i><span class="urlbar">dar.studio/nile-digital</span></div>
-<div class="preview" style="--pv-bg:radial-gradient(420px 200px at 50% -30%,#60a5fa20,transparent),#0a0d13;--pv-accent:#60a5fa">
-<div class="pv-nav"><span class="pv-logo"></span><span class="pv-dots"><i></i><i></i><i></i></span></div>
-<div class="pv-hero"><span class="pv-badge"></span><div class="pv-h">Nile Digital</div><div class="pv-line"></div><span class="pv-btn"></span></div>
-</div>
-<div class="meta"><h3>Nile Digital<small>استوديو برمجة · إنجليزي · أزرق</small></h3><span class="pv-open">معاينة <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></span></div>
-</a>
+<a class="b-demo rv" href="demos/nile-digital.html" target="_blank" rel="noopener">
+<div class="b-thumb"><span class="glyph">◆</span><span class="b-open">OPEN LIVE →</span></div>
+<div class="b-meta"><h3>Nile Digital</h3><p class="ar">استوديو برمجة — أزرق نيلي احترافي</p>
+<div class="b-tags"><span class="tag hot">Landing</span><span class="tag">EN</span></div></div></a>
 
-<a class="demo" href="demos/elite-clinic-ar.html" target="_blank" rel="noopener">
-<div class="chrome"><i class="dot"></i><i class="dot"></i><i class="dot"></i><span class="urlbar">dar.studio/elite-clinic</span></div>
-<div class="preview" style="--pv-bg:radial-gradient(420px 200px at 50% -30%,#10b98120,transparent),#090e0c;--pv-accent:#10b981">
-<div class="pv-nav"><span class="pv-logo"></span><span class="pv-dots"><i></i><i></i><i></i></span></div>
-<div class="pv-hero"><span class="pv-badge"></span><div class="pv-h">عيادة النخبة</div><div class="pv-line"></div><span class="pv-btn"></span></div>
-</div>
-<div class="meta"><h3>عيادة النخبة<small>أسنان تجميل · عربي RTL · زمردي</small></h3><span class="pv-open">معاينة <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></span></div>
-</a>
+<a class="b-demo rv" href="demos/elite-clinic-ar.html" target="_blank" rel="noopener">
+<div class="b-thumb"><span class="glyph">✚</span><span class="b-open">OPEN LIVE →</span></div>
+<div class="b-meta"><h3 class="ar-t">عيادة النخبة</h3><p class="ar">طب أسنان تجميلي — زمردي راقٍ بالعربي الكامل</p>
+<div class="b-tags"><span class="tag hot">Landing</span><span class="tag lang-ar">RTL عربي</span></div></div></a>
 
-<a class="demo" href="demos/attar-gulf-ar.html" target="_blank" rel="noopener">
-<div class="chrome"><i class="dot"></i><i class="dot"></i><i class="dot"></i><span class="urlbar">dar.studio/attar-gulf</span></div>
-<div class="preview" style="--pv-bg:radial-gradient(420px 200px at 50% -30%,#eab30820,transparent),#0f0d08;--pv-accent:#eab308">
-<div class="pv-nav"><span class="pv-logo"></span><span class="pv-dots"><i></i><i></i><i></i></span></div>
-<div class="pv-hero"><span class="pv-badge"></span><div class="pv-h">عطر الخليج</div><div class="pv-line"></div><span class="pv-btn"></span></div>
-</div>
-<div class="meta"><h3>عطر الخليج<small>عطور فاخرة · عربي RTL · عنبري</small></h3><span class="pv-open">معاينة <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></span></div>
-</a>
+<a class="b-demo rv" href="demos/attar-gulf-ar.html" target="_blank" rel="noopener">
+<div class="b-thumb"><span class="glyph">🕌</span><span class="b-open">OPEN LIVE →</span></div>
+<div class="b-meta"><h3 class="ar-t">عطر الخليج</h3><p class="ar">عطور فاخرة — عنبري خليجي الأصالة</p>
+<div class="b-tags"><span class="tag hot">Landing</span><span class="tag lang-ar">RTL عربي</span></div></div></a>
 
-<a class="demo" href="demos/falcon-logistics.html" target="_blank" rel="noopener">
-<div class="chrome"><i class="dot"></i><i class="dot"></i><i class="dot"></i><span class="urlbar">dar.studio/falcon</span></div>
-<div class="preview" style="--pv-bg:radial-gradient(420px 200px at 50% -30%,#38bdf820,transparent),#090c11;--pv-accent:#38bdf8">
-<div class="pv-nav"><span class="pv-logo"></span><span class="pv-dots"><i></i><i></i><i></i></span></div>
-<div class="pv-hero"><span class="pv-badge"></span><div class="pv-h">Falcon Freight</div><div class="pv-line"></div><span class="pv-btn"></span></div>
-</div>
-<div class="meta"><h3>Falcon Freight<small>لوجستيك خليجي · إنجليزي · سماوي</small></h3><span class="pv-open">معاينة <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></span></div>
-</a>
+<a class="b-demo rv" href="demos/falcon-logistics.html" target="_blank" rel="noopener">
+<div class="b-thumb"><span class="glyph">🦅</span><span class="b-open">OPEN LIVE →</span></div>
+<div class="b-meta"><h3>Falcon Freight</h3><p class="ar">لوجيستيك خليجي — سماوي حديث وسريع</p>
+<div class="b-tags"><span class="tag hot">Landing</span><span class="tag">EN</span></div></div></a>
 
 </div>
 </div></section>
 
-<section id="pricing" style="background:var(--bg-elev);border-block:1px solid var(--line)"><div class="wrap">
-<div class="sec-head">
-<span class="sec-num">02 — PRICING</span>
-<h2>سعر ثابت معلن. بدون مفاجآت.</h2>
-<p>كل باقة تشمل التصميم الكامل والتنفيذ والتسليم — والدفع بعد ما توافق على المعاينة الخاصة.</p>
+<section id="pricing" style="background:var(--bg2);border-block:1px solid var(--line)"><div class="wrap">
+<div class="sec-head rv">
+<p class="sec-kicker">PRICING · الأسعار</p>
+<h2>سعر ثابت. تسليم سريع. بدون رسوم مخفية.</h2>
+<p class="ar">الدفع بعد موافقتك على المعاينة الخاصة بمشروعك — رضاك أولاً.</p>
 </div>
 <div class="plans">
 
-<div class="plan hot">
-<span class="hot-tag">الأكثر طلبًا</span>
-<h3>صفحة هبوط فاخرة</h3>
-<div class="price">$149<small>/ قطعة</small></div>
-<ul>
-<li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>تصميم مخصص بهوية علامتك — لا قوالب جاهزة</li>
-<li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>عربي RTL أو إنجليزي — بجودة نطق عالمية</li>
-<li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>سرعة تحميل 95+ و SEO تقني أساسي</li>
-<li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>ربط دومينك ونشر كامل</li>
-<li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>تسليم ٢٤ ساعة + تعديلان مجانًا</li>
+<div class="plan featured rv">
+<span class="flag">الأكثر طلبًا</span>
+<h3>Landing Page</h3>
+<div class="p-num">$149<small> / صفحة</small></div>
+<ul class="ar">
+<li>تصميم فاخر مستوحى من معرضنا — بهويتك أنت</li>
+<li>عربي RTL أو إنجليزي — بأفضل خطوط Google</li>
+<li>سرعة تحميل ممتازة وSEO تقني</li>
+<li>ربط نطاقك الخاص + نشر كامل</li>
+<li>تسليم ٢٤ ساعة + تعديلان مجانًا</li>
 </ul>
-<a class="btn btn-gold" href="#contact">ابدأ صفحتك</a>
+<a class="btn-primary ar" href="#contact" style="display:block;text-align:center">اطلب صفحتك الآن</a>
 </div>
 
-<div class="plan">
-<h3>بوت تيليجرام للمبيعات</h3>
-<div class="price">$199<small>/ قطعة</small></div>
-<ul>
-<li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>يلتقط العملاء المحتملين تلقائيًا</li>
-<li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>ردود ذكية على الأسئلة الشائعة</li>
-<li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>لوحة عملاء ليك: تصدير وبث رسائل</li>
-<li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>إعداد كامل بالنيابة عنك + تدريب مصغر</li>
-<li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>تسليم ٤٨ ساعة</li>
+<div class="plan rv">
+<h3>Telegram Bot</h3>
+<div class="p-num">$199<small> / بوت</small></div>
+<ul class="ar">
+<li>يجمع العملاء المحتملين تلقائيًا ٢٤/٧</li>
+<li>ردود آلية ذكية على الأسئلة المتكررة</li>
+<li>لوحة متابعة العملاء لصاحب البوت</li>
+<li>إعداد كامل بالنيابة عنك — صفر تعقيد</li>
+<li>تسليم ٤٨ ساعة + شرح فيديو</li>
 </ul>
-<a class="btn btn-ghost" href="#contact">اطلب البوت</a>
+<a class="btn-ghost ar" href="#contact" style="display:block;text-align:center">اطلب البوت</a>
 </div>
 
-<div class="plan">
-<h3>أتمتة Python مخصصة</h3>
-<div class="price">$149<small>/ مهمة</small></div>
-<ul>
-<li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>نؤتمت أي عمل متكرر عندك</li>
-<li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>ملفات، تقارير، مراقبة صفحات، رسائل مخصصة</li>
-<li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>شرح استخدام مصور + كود مفتوح لك</li>
-<li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>تشغيل على جهازك أو سيرفرك</li>
-<li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>تسليم ٢٤ ساعة + تعديلان</li>
+<div class="plan rv">
+<h3>Python Automation</h3>
+<div class="p-num">$149<small> / نظام</small></div>
+<ul class="ar">
+<li>أتمتة أي مهمة متكررة تستهلك وقتك</li>
+<li>ملفات، تقارير، مراقبة صفحات، رسائل جاهزة</li>
+<li>توثيق كامل + جلسة تسليم قصيرة</li>
+<li>كود نظيف مملوك لك بالكامل</li>
+<li>تسليم ٢٤ ساعة + تعديلان</li>
 </ul>
-<a class="btn btn-ghost" href="#contact">اطلب أتمتة</a>
+<a class="btn-ghost ar" href="#contact" style="display:block;text-align:center">اطلب الأتمتة</a>
 </div>
 
 </div>
 </div></section>
 
 <section id="process"><div class="wrap">
-<div class="sec-head">
-<span class="sec-num">03 — PROCESS</span>
-<h2>أربع خطوات. صفر مفاجآت.</h2>
+<div class="sec-head rv">
+<p class="sec-kicker">PROCESS · منهجيتنا</p>
+<h2>من الفكرة إلى التسليم في ٤ خطوات</h2>
 </div>
-<div class="steps">
-<div class="step"><span class="step-n">STEP / 01</span><h3>اختار نموذجًا</h3><p>من المعرض فوق، أو وصّلنا رؤيتك لو مختلفة تمامًا.</p></div>
-<div class="step"><span class="step-n">STEP / 02</span><h3>محادثة قصيرة</h3><p>واتساب أو تيليجرام — نفهم مشروعك ونثبّت السعر والمدة.</p></div>
-<div class="step"><span class="step-n">STEP / 03</span><h3>معاينة خاصة بك</h3><p>نبعتلك نسختك الخاصة بعلامتك. تعديلات غير محدودة على المعاينة.</p></div>
-<div class="step"><span class="step-n">STEP / 04</span><h3>دفع وتسليم</h3><p>بعد موافقتك: USDC/USDT على Base، وتستلم كل شيء فورًا.</p></div>
+<div class="steps ar">
+<div class="step rv"><div class="step-n">01</div><b>اختر نموذجًا</b><p>من المعرض أعلاه — أو وصّلنا رؤيتك لو عندك مرجع مختلف.</p></div>
+<div class="step rv"><div class="step-n">02</div><b>محادثة قصيرة</b><p>نفهم علامتك وأهدافك عبر واتساب أو تيليجرام — الاستشارة مجانية.</p></div>
+<div class="step rv"><div class="step-n">03</div><b>معاينة خاصة بك</b><p>نسخة مخصصة بهويتك تنشر على رابط خاص تراها قبل أي دفع.</p></div>
+<div class="step rv"><div class="step-n">04</div><b>دفع وتسليم</b><p>تعتمدها، تدفع بأمان، وتستلم الملفات والملكية الكاملة فورًا.</p></div>
 </div>
 
-<div class="guar" style="margin-top:26px">
-<div class="g-card"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><h3>التزام بالمواعيد</h3><p>لو اتأخرنا عن الموعد المتفق عليه، خصم ١٥٪ تلقائيًا.</p></div>
-<div class="g-card"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M21 12a9 9 0 1 1-2.6-6.4M21 3v6h-6"/></svg><h3>تعديلان بعد التسليم</h3><p>مش معاينة بس — تعديلات حقيقية بعد ما تستلم.</p></div>
-<div class="g-card"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/></svg><h3>شفافية كاملة</h3><p>تشوف المعاينة قبل أي دفع. ولا جنيه قبل رضاك.</p></div>
+<div style="margin-top:44px">
+<div class="guarantee ar">
+<div class="g-card rv"><h4>🔁 تعديلان مجانيان</h4><p>بعد التسليم عندك حق تعديلين على المحتوى والألوان — بدون أي تكلفة إضافية.</p></div>
+<div class="g-card rv"><h4>⏱️ التزام بالمواعيد</h4><p>لو تأخرنا عن الموعد المتفق عليه لأي سبب، خصم ٢٠٪ تلقائيًا.</p></div>
+<div class="g-card rv"><h4>📜 ملكية كاملة</h4><p>كل الملفات والكود ملكك وحد — نحن لا نحتفظ بأي حقوق عليها.</p></div>
 </div>
-</div></section>
-
-<section id="faq"><div class="wrap">
-<div class="sec-head">
-<span class="sec-num">04 — FAQ</span>
-<h2>أسئلة بتتكرر</h2>
-</div>
-<div class="faq">
-<details open><summary>الدفع إزاي بيتم؟<span class="pm">+</span></summary><p>USDC أو USDT على شبكة Base (رسوم أقل من سنت). الدفع بيكون بعد موافقتك على المعاينة الخاصة — مش قبله.</p></details>
-<details><summary>هل التصميم هيكون فريدًا لي؟<span class="pm">+</span></summary><p>أيوة. النماذج هنا مجرد نقطة انطلاق تختار منها الاتجاه البصري — نسختك بتتبني من الصفر بألوانك وخطوطك ومحتواك، ومش هتتنشر كقالب لحد تاني.</p></details>
-<details><summary>لو مش عاجبني الشغل؟<span class="pm">+</span></summary><p>في مرحلة المعاينة تعدّل براحتك لحد ما تبقى مبسوط — والدفع أصلاً مش بيتم غير بعد موافقتك النهائية.</p></details>
-<details><summary>بتشتغلوا مع عملاء خارج مصر؟<span class="pm">+</span></summary><p>نعم — الخليج والعالم العربي وأي عميل أجنبي. التواصل بالعربي أو الإنجليزي، والدفع بالكريبتو بيخلّي الأمور أبسط للجميع.</p></details>
-<details><summary>إيه اللي هستلمه بالظبط؟<span class="pm">+</span></summary><p>كل ملفات المشروع ملكك بالكامل: الكود، التصميم، والمحتوى — مع شرح نشر بسيط أو ننشره لك مباشرة.</p></details>
 </div>
 </div></section>
 
 <section id="contact"><div class="wrap">
-<div class="final">
-<h2>مشروعك الجاهز يبدأ برسالة واحدة</h2>
-<p>ابعتلنا النموذج اللي عجبك وفكرتك — وهنرجعلك بمعاينة أولية وخطة سعر في نفس اليوم غالبًا.</p>
-<div class="row">
-<a class="btn btn-gold" href="https://wa.me/201000000000?text=%D8%B9%D8%A7%D9%88%D8%B2%20%D8%A3%D8%A8%D8%AF%D8%A3%20%D9%85%D8%B4%D8%B1%D9%88%D8%B9%20%D9%85%D8%B9%20Dar%20Studio" target="_blank" rel="noopener">
-<svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.2c-.2.6-1.2 1.2-1.7 1.2-.4.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.6-2.6-1.1-4.3-3.8-4.4-4-.1-.2-1-1.4-1-2.6s.6-1.8.9-2c.2-.3.5-.3.7-.3h.5c.2 0 .4-.1.6.4.2.6.8 1.9.8 2 .1.1.1.3 0 .4-.3.7-.7 1-.5 1.3.7 1.2 1.6 2.1 2.8 2.7.3.2.5.1.7-.1.2-.3.9-1 1.1-1.4.2-.3.4-.2.6-.1l2 1c.3.1.5.2.5.3.1.1.1.7-.1 1.2z"/></svg>
-تواصل واتساب</a>
-<a class="btn btn-ghost" href="https://t.me/DarStudioBot" target="_blank" rel="noopener">
-<svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M21.9 3.4 2.9 10.7c-1.1.4-1.1 1.9 0 2.3l4.6 1.5 1.7 5.4c.3 1 1.6 1.2 2.2.4l2.5-3 4.6 3.4c.8.6 2 .2 2.2-.9l3-14.9c.2-1.1-.9-2-1.8-1.5zM8.5 13.9l9.3-5.8c.4-.3.8.3.5.6l-7.6 7.1c-.3.3-.5.6-.5 1l-.2 1.9c-.1.5-.7.5-.9.1l-1-3.4c-.2-.5 0-1.2.4-1.5z"/></svg>
-تيليجرام</a>
+<div class="contact-lux rv">
+<h2 class="ar">جاهز نبني حضورك الرقمي؟</h2>
+<p class="ar">كلمنا الآن — استشارتك الأولى مجانية تمامًا، ونرد خلال ٣٠ دقيقة في أوقات العمل.</p>
+<div class="contact-row">
+<a class="wa-btn" href="https://wa.me/201000000000?text=%D8%A3%D9%87%D9%84%D8%A7%D9%8B%20Dar%2C%20%D8%B4%D9%81%D8%AA%20%D8%A7%D9%84%D9%85%D9%88%D9%82%D8%B9%20%D9%88%D8%B9%D8%A7%D9%88%D8%B2%20%D8%A3%D8%B3%D8%AA%D9%81%D8%B3%D8%B1" target="_blank" rel="noopener">
+<svg width="21" height="21" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.074-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+واتساب مباشر</a>
+<a class="tg-btn" href="https://t.me/DarStudioBot" target="_blank" rel="noopener">تلغرام — DarStudioBot</a>
 </div>
-<p class="alt" style="color:var(--faint);font-size:.8rem;margin-top:18px">متوسط زمن الرد: أقل من ساعة · hello@darstudio.works</p>
+<p class="alt ar" style="color:var(--dim);margin-top:18px;font-size:.85rem">أو راسلنا على hello@dar.studio — نرد على كل الرسائل شخصيًا.</p>
 </div>
 </div></section>
 
-<footer><div class="wrap foot-in">
-<span>© 2026 Dar Studio — دار ستوديو</span>
-<span class="en" style="letter-spacing:.15em;font-size:.7rem">BUILT DIFFERENT · DELIVERED FAST</span>
+<footer><div class="wrap">
+<div class="f-logo">DAR · دار STUDIO</div>
+<p class="ar">© 2026 دار ستوديو — نصنع الحضور الرقمي الفاخر. جميع الحقوق محفوظة.</p>
 </div></footer>
 
+<script>
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+</script>
 </body>
 </html>
