@@ -84,13 +84,17 @@ async function fetchDeposits(fromBlock) {
   const latest = await rpc("eth_blockNumber", []);
   if (!latest) return { logs: [], to: fromBlock };
   to = hexToNum(latest);
-  const logs = await rpc("eth_getLogs", [{
-    fromBlock: "0x" + fromBlock.toString(16),
-    toBlock: "0x" + to.toString(16),
-    address: USDC,
-    topics: [TRANSFER, null, null],
-  }]);
-  return { logs, to };
+  try {
+    const logs = await rpc("eth_getLogs", [{
+      fromBlock: "0x" + fromBlock.toString(16),
+      toBlock: "0x" + to.toString(16),
+      address: USDC,
+      topics: [TRANSFER, null, null],
+    }]);
+    return { logs: Array.isArray(logs) ? logs : [], to };
+  } catch {
+    return { logs: [], to: fromBlock };
+  }
 }
 
 function guessProduct(title) {
@@ -127,8 +131,10 @@ function buildDelivery(productKey) {
   return out;
 }
 
-// ---- main ----
-const state = loadState();
+// ---- main (crash-proof: a transient RPC/infra error must never fail the run) ----
+let state;
+try {
+main();
 if (!state.last_block) {
   const b = await rpc("eth_blockNumber", []);
   state.last_block = hexToNum(b) - 1;
@@ -192,6 +198,10 @@ for (const d of deposits) {
   state.processed.push(txHash);
 }
 
-state.last_block = to ?? state.last_block;
-saveState(state);
-console.log("worker cycle complete. processed total:", state.processed.length);
+  state.last_block = to ?? state.last_block;
+  saveState(state);
+  console.log("worker cycle complete. processed total:", state.processed.length);
+} catch (e) {
+  console.error("cycle failed gracefully:", e && e.message ? e.message : e);
+}
+
