@@ -54,12 +54,18 @@ async function gh(method, p, body) {
 }
 
 async function rpc(method, params) {
-  const r = await fetch(RPC, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ jsonrpc: "2.0", id: 1, method, params }),
-  });
-  return (await r.json()).result;
+  for (const endpoint of ["https://base.publicnode.com", RPC]) {
+    try {
+      const r = await fetch(endpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ jsonrpc: "2.0", id: 1, method, params }),
+      });
+      const j = await r.json();
+      if (j && j.result !== undefined) return j.result;
+    } catch (e) { /* try next */ }
+  }
+  return null;
 }
 
 function loadState() {
@@ -76,6 +82,7 @@ let to;
 
 async function fetchDeposits(fromBlock) {
   const latest = await rpc("eth_blockNumber", []);
+  if (!latest) return { logs: [], to: fromBlock };
   to = hexToNum(latest);
   const logs = await rpc("eth_getLogs", [{
     fromBlock: "0x" + fromBlock.toString(16),
