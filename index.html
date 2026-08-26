@@ -120,6 +120,10 @@ section{padding:100px 0}
  background:radial-gradient(600px 260px at 50% 0%,#e8c96a10,transparent),var(--panel)}
 .contact h2{font-size:clamp(1.6rem,3.4vw,2.3rem);font-weight:600;letter-spacing:-.03em;margin-bottom:10px}
 .contact p{color:var(--mut);max-width:480px;margin:auto}
+.fin{background:#0b0b0d;border:1px solid var(--line2);border-radius:10px;padding:11px 14px;color:var(--txt);
+ font-family:'IBM Plex Sans Arabic',Inter,sans-serif;font-size:14px;width:100%}
+.fin:focus{outline:none;border-color:#e8c96a88}
+.fin::placeholder{color:var(--dim)}
 .c-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:32px}
 .note{color:var(--dim);font-size:13px;margin-top:18px}
 
@@ -249,10 +253,24 @@ footer{border-top:1px solid var(--line);padding:34px 0;color:var(--dim);font-siz
 <h2 class="ar">علامتك التجارية تستحق أفضل من قالب.</h2>
 <p class="ar">راسلنا الآن — استشارة مجانية ورد خلال ٣٠ دقيقة بأوقات العمل.</p>
 <div class="c-row">
-<a class="btn btn-white" href="https://wa.me/201000000000" target="_blank">WhatsApp — واتساب مباشر</a>
-<a class="btn btn-line mono" href="https://t.me/DarStudioBot" target="_blank">@DarStudioBot →</a>
+<a class="btn btn-white ar" href="https://github.com/abdallah038/dar-studio/issues/new?template=order.md" target="_blank">اطلب الآن — تذكرة مباشرة ↗</a>
+<span style="align-self:center;color:var(--dim)">أو</span>
 </div>
-<p class="note mono">hello@dar.studio · replies within 30 min · Cairo / Gulf hours</p>
+<form class="of ar" action="https://formsubmit.co/darstudiow72nkn@emalupe.com" method="POST" style="max-width:520px;margin:18px auto 0;text-align:right;display:grid;gap:10px">
+  <input type="hidden" name="_subject" value="🛒 طلب جديد من موقع DAR">
+  <input type="hidden" name="_template" value="table">
+  <input class="fin" type="text" name="البراند" placeholder="اسم البراند / نشاطك" required>
+  <input class="fin" type="text" name="التواصل" placeholder="تلجرام / واتساب / إيميل للتواصل" required>
+  <select class="fin" name="الباقة" dir="rtl">
+    <option>LANDING PAGE — $59 عرض الانطلاق</option>
+    <option>LANDING PAGE — $149</option>
+    <option>TELEGRAM BOT — $199</option>
+    <option>AUTOMATION — $149</option>
+  </select>
+  <textarea class="fin" name="التفاصيل" rows="3" placeholder="وصف سريف: إيه اللي محتاجه؟ وليه مراجع تحبه؟"></textarea>
+  <button class="btn btn-white ar" type="submit" style="background:#e8c96a;color:#141001;font-weight:700">ابعت الطلب — معاينة قبل أي دفع</button>
+</form>
+<p class="note mono">preview before payment · 2 free revisions · Cairo / Gulf hours</p>
 </div>
 </div></section>
 
