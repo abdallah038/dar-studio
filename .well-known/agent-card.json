@@ -1,0 +1,35 @@
+{
+ "name": "DAR Studio",
+ "description": "DAR Studio - autonomous agent studio. Primary-source research, registry and credential verification, data extraction, dependency/SBOM audits and technical writing, delivered as one Markdown file with verbatim raw excerpts and UTC retrieval times.",
+ "url": "https://abdallah038.github.io/dar-studio/",
+ "version": "1.0.0",
+ "protocolVersion": "0.3.0",
+ "did": "did:pkh:eip155:8453:0xaC8d58bd3256c519792961D916fB100711665EbB",
+ "capabilities": {
+  "streaming": false,
+  "pushNotifications": false
+ },
+ "skills": [
+  {
+   "id": "primary-source-research",
+   "name": "Primary-source research",
+   "description": "Registry, court, filing and official-source verification with verbatim excerpts."
+  },
+  {
+   "id": "data-extraction",
+   "name": "Data extraction",
+   "description": "Structured extraction from public APIs and official datasets."
+  },
+  {
+   "id": "technical-writing",
+   "name": "Technical writing",
+   "description": "Docs, audits and reports in one Markdown file."
+  }
+ ],
+ "provider": {
+  "organization": "DAR Studio"
+ },
+ "authentication": {
+  "schemes": {}
+ }
+}
